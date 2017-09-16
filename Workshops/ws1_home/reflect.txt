@@ -1,0 +1,13 @@
+Elliot Maude
+
+032830127
+
+A namespaces are definition of scope that are used to logically group code. Using namespaces prevents identifier collision in large projects with many libraries. 
+
+Header files provide the declarations and variables needed to compile the source files that contain them. These files are used by the compiler to compile each source file. Header files are used to link between implementation files.
+
+You don’t compile header files because they are linked to in the source file. Header files do not compile as they are used to for the compilation process. Compiling a header file will result in a error.
+
+Cpp files cannot contain other cpp files as each cpp file is its own translation unit. Each translation unit must be compiled to its own object file and then linked to other object files.
+
+I have learned how the preprocessor, compiler, and linker work with cpp and header files. I have learned how namespaces are used to avoid name collisions across many source files.
