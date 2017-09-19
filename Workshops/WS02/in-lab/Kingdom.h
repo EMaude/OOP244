@@ -2,26 +2,27 @@
 // OOP244 Workshop 2: Dynamic Memory
 // File Kingdom.h
 // Version 1.0
-// Date ???????????
-// Author ?????????
-// Description
-// ?????????????????????
-//
-//
-// Revision History
-///////////////////////////////////////////////////////////
-// Name     Date    Reason
+// Date 9/19/17
 // 
-///////////////////////////////////////////////////////////
+// Elliot Maude
+//
 ***********************************************************/
+#ifndef SICT_KINGDOM_H
+#define SICT_KINGDOM_H
 
-// TODO: header safeguards
+namespace sict
+{
+	struct Kingdom
+	{
+		char m_name[32];
+		int	m_population;
+	};
+
+	void display(const Kingdom &kingdom);
+}
+
+#endif // !SICT_KINGDOM_H
 
 
-// TODO: sict namespace
 
-// TODO: define the structure Kingdom in the sict namespace
-
-// TODO: declare the function display(...),
-//         also in the sict namespace
 

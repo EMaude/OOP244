@@ -2,17 +2,10 @@
 // Workshop 2: Dynamic Memory
 // File w2_at_home.cpp
 // Version 2.0
-// Date ???????????
-// Author ?????????
-// Description
-// ?????????????????????
+// Date 09/19/17
 //
+// Elliot Maude
 //
-// Revision History
-///////////////////////////////////////////////////////////
-// Name     Date    Reason
-//
-///////////////////////////////////////////////////////////
 ***********************************************************/
 
 #include <iostream>
@@ -26,7 +19,7 @@ void read(Kingdom&);
 int main() {
 	int count = 0; // the number of kingdoms in the array
 
-	// TODO: declare the pKingdom pointer here (don't forget to initialize it)
+	Kingdom *pKingdom = nullptr;
 
 	cout << "==========\n"
 		<< "Input data\n"
@@ -37,11 +30,11 @@ int main() {
 
 	if (count < 1) return 1;
 
-	// TODO: allocate dynamic memory here for the pKingdom pointer
+	pKingdom = new Kingdom[count];
 
 	for (int i = 0; i < count; ++i) {
 		cout << "Kingdom #" << i + 1 << ": " << endl;
-		// TODO: add code to accept user input for Kingdom i
+		read(pKingdom[i]);
 	}
 	cout << "==========" << endl << endl;
 
@@ -53,16 +46,23 @@ int main() {
 	cout << "------------------------------" << endl << endl;
 
 	// expand the array of Kingdoms by 1 element
-	// TODO: allocate dynamic memory for count + 1 Kingdoms
-	// TODO: copy elements from original array into this newly allocated array
-	// TODO: deallocate the dynamic memory for the original array
-	// TODO: copy the address of the newly allocated array into pKingdom pointer
+	Kingdom *pTemp = new Kingdom[count + 1];
+	
+	for (int i = 0; i < count; i++)
+	{
+		pTemp[i] = pKingdom[i];
+	}
+	
+	delete[] pKingdom;
+
+	pKingdom = pTemp;
+
 	// add the new Kingdom
 	cout << "==========\n"
 		<< "Input data\n"
 		<< "==========\n"
 		<< "Kingdom #" << count + 1 << ": " << endl;
-	// TODO: accept input for the new element in the array
+	read(pKingdom[count]);
 	count++;
 	cout << "==========\n" << endl;
 
@@ -70,7 +70,8 @@ int main() {
 	display(pKingdom, count);
 	cout << endl;
 
-	// TODO: deallocate the dynamic memory here
+	delete[] pKingdom;
+	delete[] pTemp;
 
 	return 0;
 }

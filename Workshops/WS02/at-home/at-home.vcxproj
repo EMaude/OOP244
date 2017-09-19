@@ -145,7 +145,11 @@
     <Text Include="input.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Kingdom.cpp" />
     <ClCompile Include="w2_at_home.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Kingdom.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
