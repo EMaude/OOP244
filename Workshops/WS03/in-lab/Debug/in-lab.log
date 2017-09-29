@@ -1,0 +1,10 @@
+﻿  CRA_Account.cpp
+q:\oop244\workshops\ws03\in-lab\cra_account.cpp(17): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\string.h(136): note: see declaration of 'strcpy'
+q:\oop244\workshops\ws03\in-lab\cra_account.cpp(18): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\string.h(136): note: see declaration of 'strcpy'
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  w3_in_lab.cpp
+  in-lab.vcxproj -> Q:\OOP244\Workshops\WS03\in-lab\Debug\in-lab.exe
+  in-lab.vcxproj -> Q:\OOP244\Workshops\WS03\in-lab\Debug\in-lab.pdb (Partial PDB)
