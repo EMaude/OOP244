@@ -9,10 +9,10 @@
 // how member variables are defined privately, but 
 // accessed through public member functions
 //
-// Revision History
-///////////////////////////////////////////////////////////
-// Name			Date		          Reason
-// 
+//
+//Elliot Maude
+//032830127
+//
 ///////////////////////////////////////////////////////////
 **********************************************************/
 
