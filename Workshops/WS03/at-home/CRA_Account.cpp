@@ -85,13 +85,13 @@ namespace sict
 			
 			for (int i = 0; i < m_storedYrs; i++)
 			{
-				if (m_balance[i] < 2)
+				if (m_balance[i] > 2)
 				{
 					cout << "Year (" << m_years[i] << ") balance owing: " << m_balance[i] << endl;
 				}
-				else if (m_balance[i] > 2)
+				else if (m_balance[i] < -2)
 				{
-					cout << "Year (" << m_years[i] << ") refund due: " << m_balance[i] << endl;
+					cout << "Year (" << m_years[i] << ") refund due: " << (m_balance[i] * -1.00) << endl;
 				}
 				else
 				{
