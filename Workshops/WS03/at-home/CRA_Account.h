@@ -18,9 +18,9 @@ namespace sict
 		char m_givenName[max_name_length + 1];
 		int m_sin;
 		int m_years[max_yrs];
-		int m_balance[max_yrs];
+		double m_balance[max_yrs];
 		int m_storedYrs;
-		bool validSIN() const;
+		bool validSIN(int sin) const;
 
 	public:
 		void set(const char* familyName, const char* givenName, int sin);
