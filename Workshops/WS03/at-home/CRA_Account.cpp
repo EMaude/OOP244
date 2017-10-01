@@ -91,6 +91,8 @@ namespace sict
 				}
 				else if (m_balance[i] < -2)
 				{
+					cout.setf(ios::fixed, ios::floatfield);
+					cout.precision(2);
 					cout << "Year (" << m_years[i] << ") refund due: " << (m_balance[i] * -1.00) << endl;
 				}
 				else
