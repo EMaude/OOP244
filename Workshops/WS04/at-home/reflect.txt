@@ -1,0 +1,22 @@
+//Elliot Maude
+//032830127
+
+A safe empty state is were are the variables are initialized so that they will not cause crashes in the program. The variables are set to values to indicate a empty state. Any state where the variables are not null can be a safe empty state. In this case the name and destination strings much have a value that is not a blank string in order to be considered valid. The blank string will not cause a crash, and is a good way to indicate that the object is empty.
+
+I have minimized code duplication by calling the default constructor for setting a empty state in the other constructors. I have called the 2 parameter constructor in the 5 parameter constructor to set the name and destination values to further reduce  duplication. 
+
+The canTravelWith function can access the private member of another object of the same class because C++ does not implement privacy across instances. This means any instance can access the private members of another instance.
+
+The strncpy function requires a length as well as a source and destination string.
+
+I have learned about c++ instance privacy. I have also learned about the importance of safe empty states when defining a class.
+
+
+
+Quiz 5 Reflection
+----------------
+
+
+The last quiz in the lab section quiz 5, i had no incorrect questions.
+
+I have not revived feedback on my quiz 4 , the last lecture quiz.

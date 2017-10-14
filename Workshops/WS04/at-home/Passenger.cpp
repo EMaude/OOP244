@@ -1,5 +1,6 @@
 #include <cstring>
 #include <iostream>
+#include <iomanip>
 #include "Passenger.h"
 
 using namespace std;
@@ -16,21 +17,13 @@ namespace sict
 	Passenger::Passenger(const char* name, const char* dest)
 	{
 		//Name
-		if (name == nullptr)
+		if (name == nullptr || dest == nullptr)
 		{
-			strcpy(m_name, "");
+			*this = Passenger();
 		}
 		else
 		{
 			strcpy(m_name, name);
-		}
-		//Dest
-		if (dest == nullptr)
-		{
-			strcpy(m_dest, "");
-		}
-		else
-		{
 			strcpy(m_dest, dest);
 		}
 
@@ -52,11 +45,7 @@ namespace sict
 		}
 		else
 		{	//Safe Empty state
-			strcpy(m_name, "");
-			strcpy(m_dest, "");
-			m_year = 2017;
-			m_month = 7;
-			m_day = 1;
+			*this = Passenger();
 		}
 	}
 
@@ -77,8 +66,8 @@ namespace sict
 		}
 		else
 		{	
-			cout.precision(2);
-			cout << m_name << " - " << m_dest << " on " << m_year << "/" << m_month << "/" << m_day << endl;
+			cout << setfill('0');
+			cout << m_name << " - " << m_dest << " on " << m_year << "/" << setw(2) << m_month << "/" << setw(2) << m_day << endl;
 		}
 	}
 
@@ -96,19 +85,21 @@ namespace sict
 
 	bool Passenger::canTravelWith(const Passenger& pass) const
 	{
-		if (pass.isEmpty())
+		bool state = false;
+
+		if (strcmp(pass.m_dest, this->m_dest) == 0)
 		{
-			return false;
-		}
-		else
-		{
-			if (pass.m_dest == m_dest)
+			if (pass.m_year == this->m_year)
 			{
-				if (pass.m_year == m_year && pass.m_month == m_month && pass.m_day == m_day)
+				if (pass.m_month == this->m_month)
 				{
-					return true;
+					if (pass.m_day == this->m_day)
+					{
+						state = true;
+					}
 				}
 			}
 		}
+		return state;
 	}
 }
