@@ -1,0 +1,18 @@
+Elliot Maude
+032830127
+
+
+The operator+ method returns a copy of the fraction object instead of a reference to the fraction object because we use a temporary object created within the scope of the method to store the values. This means that this object would go out of scope at the end of the method and not be accessible to the program later. We pass a copy which the client code assigns to whatever Fraction object they want
+
+When the tester code uses (a + b).display(); ( Which is does twice) The compiler assigns a temporary object to hole the returned object so that it can call display. After display has run the compiler removes that temporary object.
+
+In order to reduce reused code the two parameter constructor calls the default constructor. The != operator overload calls the == operator overload and inverts the result. The =+ uses *this = *this +rhs, in order to use the + operators code.
+
+I have learned how to work with operator overloading and how it can make working with objects much easier.
+I have also learned how to reduce the reused of code, using *this and temporary objects.
+
+----------------
+Quiz Reflection
+----------------
+
+No Quiz feedback has been received since the last reflection.
