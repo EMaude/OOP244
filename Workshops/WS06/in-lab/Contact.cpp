@@ -22,10 +22,9 @@ namespace sict
 	Contact::Contact(const char *name, const long long *phoneNumbers, int size)
 	{
 		//if data is valid
-		if (name != nullptr && strcmp(name, "") != 0 && phoneNumbers != nullptr && size > 0)
-		{
+		if (name != nullptr && strcmp(name, "") != 0)		{
 			//Copy data to object
-			strcpy(m_name, name);
+			strncpy(m_name, name, 19);
 			//Dynamic memory
 			phoneNumberAllocation(phoneNumbers, size);
 		}
@@ -87,7 +86,7 @@ namespace sict
 	bool Contact::isEmpty() const
 	{
 		bool result = true;
-		if (strcmp(m_name, "") != 0 && m_pPhoneNumbers != 0 && m_size > 0)
+		if (strcmp(m_name, ""))
 		{
 			result = false;
 		}
