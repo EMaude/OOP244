@@ -9,7 +9,7 @@ namespace sict
 
 		Contact();
 		Contact(const char* name, const long long *phoneNumbers, int size);
-		Contact(const Contact&);
+		Contact(Contact&);
 		~Contact();
 
 	private: // Private Members
@@ -19,15 +19,14 @@ namespace sict
 		int m_size;
 
 		void phoneNumberAllocation(const long long *phoneNumbers, int size);
-		void addPhoneNumber(long long phoneNumber);
 
 	public: //public Members
 		bool isEmpty() const;
 		void display() const;
 
-			//Operators
-		Contact& operator=(const Contact&);
-		Contact& operator+=(long long phoneNumber);
+		Contact& operator=(Contact&);
+		Contact& operator+=(long long nPhoneNumber);
+
 	};
 }
 #endif // !SICT_CONTACT_H

@@ -1,0 +1,12 @@
+Elliot Maude
+032830127
+
+The copy assignment operator checks for self assignment before doing anything as trying to deep copy memory starts with deleteing the existing memory in *this. Which would delete all the data in the resource, and crash the program by trying to copy deleted memory.
+
+The copy constructor uses the copy assignment operator in order to reduce code. 
+
+I have learned how to debug dynamic memory within classes, and to be very careful to ensure there are no buffer overflow errors that I am creating in my code.
+
+
+
+There has been no new quiz scince the last workshop.

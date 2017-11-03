@@ -14,15 +14,13 @@ namespace sict
 	{
 		//Safe empty state
 		strcpy(m_name, "");
-		m_size = 0; 
-		m_pPhoneNumbers = new long long[1];
-		m_pPhoneNumbers[0] = 0;
-
+		m_size = 1; 
+		m_pPhoneNumbers = nullptr;
 	}
 	Contact::Contact(const char *name, const long long *phoneNumbers, int size)
 	{
 		//if data is valid
-		if (name != nullptr && strcmp(name, "") != 0)		{
+		if (name != nullptr && strcmp(name, "") != 0){
 			//Copy data to object
 			strncpy(m_name, name, 19);
 			//Dynamic memory
@@ -31,12 +29,15 @@ namespace sict
 		else
 		{
 			//Safe Empty State
-			*this = Contact();
+			strcpy(m_name, "");
+			m_size = 1;
+			m_pPhoneNumbers = nullptr;
 		}
 	}
-	Contact::Contact(const Contact &a)
+	Contact::Contact(Contact &a)
 	{
-			*this = a;
+		this->m_pPhoneNumbers = nullptr;
+		*this = a;
 	}
 	Contact::~Contact()
 	{
@@ -49,10 +50,6 @@ namespace sict
 	//---------------
 	void Contact::phoneNumberAllocation(const long long * phoneNumbers, int size)
 	{
-		//Pre allocate to a safe state
-		m_pPhoneNumbers = new long long[1];
-		m_pPhoneNumbers[0] = 0;
-
 		m_size = 0;
 		//check data validation and get size of valid data
 		for (int i = 0; i < size; i++)
@@ -80,22 +77,6 @@ namespace sict
 					}
 				}
 			}
-		}
-	}
-	void Contact::addPhoneNumber(long long phoneNumber)
-	{
-		Contact temp = *this; //make a copy of this
-		this->m_size += 1;
-		if (phoneNumber >= 10000000000 && phoneNumber <= 999999999999)
-		{
-			delete[] this->m_pPhoneNumbers;
-			this->m_pPhoneNumbers = new long long[this->m_size];
-			
-			for (int i = 0; i < temp.m_size; i++)
-			{
-				this->m_pPhoneNumbers[i] = temp.m_pPhoneNumbers[i];
-			}
-			this->m_pPhoneNumbers[this->m_size] = phoneNumber;
 		}
 	}
 
@@ -128,6 +109,7 @@ namespace sict
 				long long num3 = (m_pPhoneNumbers[i] % 10000000) / 10000;
 				long long num4 = (m_pPhoneNumbers[i] % 10000);
 				
+				
 				cout << "(+" << countryCode << ") ";
 				cout.fill('0');
 				cout.width(3);
@@ -138,33 +120,54 @@ namespace sict
 				cout.fill('0');
 				cout.width(4);
 				cout <<num4 << endl;
+
 			}
 		}
 	}
-
-	//---------
-	//Operators
-	//---------
-	Contact& Contact::operator=(const Contact &a)
+	Contact& Contact::operator=(Contact &a)
 	{
 		if (this != &a)
 		{
-			strcpy(this->m_name, a.m_name);
-			this->m_size = a.m_size;
-			
-			delete[] this->m_pPhoneNumbers;
-			m_pPhoneNumbers = new long long[this->m_size];
-
-			for (int i = 0; i < this->m_size; i++)
+			if (a.m_pPhoneNumbers != nullptr)
 			{
-				m_pPhoneNumbers[i] = a.m_pPhoneNumbers[i];
+				if (this->m_size > 0 && this->m_pPhoneNumbers != nullptr)
+				{
+					delete[] this->m_pPhoneNumbers;
+				}
+				this->m_pPhoneNumbers = new long long[a.m_size];
+
+				for (int i = 0; i < a.m_size; i++)
+				{
+					this->m_pPhoneNumbers[i] = a.m_pPhoneNumbers[i];
+				}
 			}
+
+			this->m_size = a.m_size;
+			strcpy(this->m_name, a.m_name);
+
 		}
 		return *this;
 	}
-	Contact& Contact::operator+=(long long phoneNumber)
+	Contact& Contact::operator+=(long long nPhoneNumber)
 	{
-		addPhoneNumber(phoneNumber);
+		if (nPhoneNumber >= 10000000000 && nPhoneNumber <= 999999999999)
+		{
+			if (this->m_pPhoneNumbers != nullptr)
+			{
+				Contact temp = *this;
+				if (m_size > 0 && this->m_pPhoneNumbers != nullptr)
+				{
+					delete[] this->m_pPhoneNumbers;
+				}
+				this->m_pPhoneNumbers = new long long[temp.m_size + 1];
+				for (int i = 0; i < m_size; i++)
+				{
+					this->m_pPhoneNumbers[i] = temp.m_pPhoneNumbers[i];
+				}
+			}
+			this->m_pPhoneNumbers[m_size] = nPhoneNumber;
+			m_size += 1;
+		}
 		return *this;
 	}
 }
