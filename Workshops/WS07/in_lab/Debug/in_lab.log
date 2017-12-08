@@ -1,0 +1,7 @@
+﻿  Hero.cpp
+d:\oop244\ws07\in_lab\hero.cpp(7): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\string.h(136): note: see declaration of 'strcpy'
+d:\oop244\ws07\in_lab\hero.cpp(15): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\string.h(136): note: see declaration of 'strcpy'
+  in_lab.vcxproj -> D:\OOP244\WS07\in_lab\Debug\in_lab.exe
+  in_lab.vcxproj -> D:\OOP244\WS07\in_lab\Debug\in_lab.pdb (Partial PDB)
