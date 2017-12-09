@@ -1,0 +1,13 @@
+Elliot Maude
+032830127
+
+Reflect Workshop 7
+-------------------
+
+1. The hero class does not need to know about the superhero class.
+2. The Superhero class dose need to knwo about the hero class in order to use the members of the base class. The constuctor calls the Hero constructor, and the values that Hero stores are querried by the Superhero class.
+3. It prints out "Ancient Battle" because it is using the base Hero classes implmentation and not the super hero classes implementation. The super hero implementation would crash if it was given a hero as it expects a super hero.
+4. Both main programs are valid.
+
+
+No quiz reflection as there is no new quiz that has been returned.

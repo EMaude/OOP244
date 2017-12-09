@@ -1,4 +1,3 @@
-#pragma once
 #ifndef SICT_HERO_H
 #define SICT_HERO_H
 
