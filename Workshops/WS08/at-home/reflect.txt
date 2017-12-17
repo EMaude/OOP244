@@ -1,0 +1,12 @@
+Elliot Maude
+032830127
+-------------
+
+An abstract class is a class that cannot be used to create a object. It has functions that are virtual and have no implementation within that class. A concrete class can be used ot create a object as it has implementation for all its functions.
+
+Functions that shadow other functions in this workshop are:
+Chequing and savings both have display functions based on iAccount
+Chequing has credit and debit based on Account, which is based on iAccount
+Chequing and savings both have monthEnd based on iAccount
+
+I have learned about how to use base classes to take advantage of inheratance to simplify and organize code. As well as how to use a base class to be able to define what class to make a object from at runtime.
