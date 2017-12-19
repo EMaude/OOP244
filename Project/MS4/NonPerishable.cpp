@@ -12,7 +12,7 @@ namespace sict
 			delete[] m_name;
 			m_name = nullptr;
 		}
-		if(in != nullptr && strlen(in) <= max_name_length) 
+		if(in != nullptr) 
 		{
 			int size = strlen(in) + 1;
 			m_name = new char[size];
@@ -70,6 +70,7 @@ namespace sict
 	}
 	NonPerishable::NonPerishable(const NonPerishable &in)
 	{
+		m_name = nullptr;
 		*this = in;
 	}
 	NonPerishable& NonPerishable::operator=(const NonPerishable &in)
@@ -262,9 +263,9 @@ namespace sict
 	{
 		return in.read(is);
 	}
-	double operator+=(double &cost, const Product &in)
+	double operator+=(double& cost, const Product &in)
 	{
-		return in.total_cost() + cost;
+		return cost = cost + in.total_cost();
 	}
 	Product* CreateProduct()
 	{
