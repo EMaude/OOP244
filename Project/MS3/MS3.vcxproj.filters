@@ -18,5 +18,16 @@
     <ClInclude Include="Product.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MyProduct.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ProductTester.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MyProduct.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
