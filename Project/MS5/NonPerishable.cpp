@@ -111,12 +111,19 @@ namespace sict
 		if (file.is_open() && !file.eof())
 		{
 			char ntemp[max_name_length];
+			
+			file.unget(); //undo ignore in tester
+			file.unget();
 			file.get(temp.m_type);
+			file.ignore(100, ',');
 			file.getline(temp.m_sku, max_sku_length, ',');
 			file.getline(ntemp, max_name_length, ',');
 			file >> temp.m_price;
+			file.ignore(100, ',');
 			file >> temp.m_taxable;
+			file.ignore(100, ',');
 			file >> temp.m_qty;
+			file.ignore(100, ',');
 			file.getline(temp.m_unit, max_unit_length, ',');
 			file >> temp.m_qtyNeeded;
 
@@ -153,7 +160,7 @@ namespace sict
 					os << "Price after tax: N/A" << endl;
 				}
 				os << "Quantity On Hand: " << m_qty << " " << m_unit << endl;
-				os << "Quantity Needed: " << m_qtyNeeded << endl;
+				os << "Quantity Needed: " << m_qtyNeeded;
 			}
 		}
 		else
@@ -168,18 +175,18 @@ namespace sict
 		bool good = true;
 		NonPerishable temp;
 		char t;
-		cout << "Sku: ";
+		cout << " Sku: ";
 		cin >> temp.m_sku;
 
-		cout << "Name: ";
+		cout << " Name: ";
 		char tname[max_name_length];
 		cin >> tname;
 		temp.name(tname);
 
-		cout << "Unit: ";
+		cout << " Unit: ";
 		cin >> temp.m_unit;
 
-		cout << "Taxed?(y/n): ";
+		cout << " Taxed? (y/n): ";
 		cin >> t;
 		if (t == 'y' || t == 'Y')
 		{
@@ -197,7 +204,7 @@ namespace sict
 		}
 		if (good)
 		{
-			cout << "Price: ";
+			cout << " Price: ";
 			cin >> temp.m_price;
 			if (temp.m_price <= 0.00)
 			{
@@ -207,7 +214,7 @@ namespace sict
 			else
 			{
 
-				cout << "Quantity on hand: ";
+				cout << "Quantity On hand: ";
 				cin >> temp.m_qty;
 				if (temp.m_qty <= 0)
 				{

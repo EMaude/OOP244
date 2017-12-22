@@ -28,14 +28,14 @@ namespace sict
 	std::fstream & Perishable::load(std::fstream & file)
 	{
 		NonPerishable::load(file);
+		file.ignore(100, ',');
 		m_expiry.read(file);
-		file.ignore();
 		return file;
 	}
 	std::ostream & Perishable::write(std::ostream &os, bool linear) const
 	{
 		NonPerishable::write(os, linear);
-		if (!m_expiry.isEmpty() || !m_expiry.bad())
+		if (!m_expiry.isEmpty() && !m_expiry.bad())
 		{
 			if (linear)
 			{
@@ -43,7 +43,8 @@ namespace sict
 			}
 			else
 			{
-				os << "Expiry date : ";
+				os << endl;
+				os << "Expiry date: ";
 				os << m_expiry;
 			}
 		}
